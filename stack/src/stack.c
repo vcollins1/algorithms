@@ -12,6 +12,7 @@ Stack* new_stack()
     s->pop = &__stack_pop;
     s->is_empty = &__stack_is_empty;
     s->size = &__stack_size;
+    s->destroy = &__stack_destroy;
     return s;
 }
 
@@ -55,4 +56,13 @@ short __stack_is_empty(Stack* self)
 unsigned __stack_size(Stack* self)
 {
     return self->__count;
+}
+
+void __stack_destroy(Stack* self)
+{
+    while (!self->is_empty(self)) {
+        self->pop(self);
+    }
+
+    free(self);
 }

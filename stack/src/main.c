@@ -45,5 +45,7 @@ int main(int argc, char* argv[])
     }
 
     printf("(%d left on stack)\n", stack->size(stack));
+
+    stack->destroy(stack);
     return 0;
 }
