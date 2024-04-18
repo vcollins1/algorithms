@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.24)
+project(infix-to-postfix)
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_BUILD_TYPE Debug)
+add_executable(infix-to-postfix main.c ../stack/src/stack.c)
